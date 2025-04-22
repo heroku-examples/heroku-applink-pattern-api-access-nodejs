@@ -9,7 +9,6 @@ const app = express()
 // Initialize Salesforce SDK
 const sdk = init();
 
-  'Tech', 'Global', 'Advanced', 'Innovative', 'Strategic', 'Premier', 'Elite',
 // Get connection names from environment variable
 const connectionNames = process.env.CONNECTION_NAMES ? process.env.CONNECTION_NAMES.split(',') : []
 
