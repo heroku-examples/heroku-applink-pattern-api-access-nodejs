@@ -9,101 +9,7 @@ const app = express()
 // Initialize Salesforce SDK
 const sdk = init();
 
-// List of business name components for random generation
-const businessTypes = [
   'Tech', 'Global', 'Advanced', 'Innovative', 'Strategic', 'Premier', 'Elite',
-  'Dynamic', 'Pacific', 'Atlantic', 'Modern', 'Future', 'Smart', 'Connected',
-  'Digital', 'Quantum', 'Unified', 'Integrated', 'Precision', 'Summit'
-];
-
-const businessNames = [
-  'Solutions', 'Systems', 'Enterprises', 'Industries', 'Dynamics', 'Partners',
-  'Networks', 'Technologies', 'Services', 'Innovations', 'Analytics', 'Consulting',
-  'Operations', 'Group', 'Corporation', 'Associates', 'International', 'Management',
-  'Ventures', 'Labs'
-];
-
-const industries = [
-  'Manufacturing', 'Software', 'Healthcare', 'Logistics', 'Energy',
-  'Communications', 'Engineering', 'Research', 'Development', 'Robotics'
-];
-
-// Address components for random generation
-const streetTypes = [
-  'Street', 'Avenue', 'Boulevard', 'Road', 'Drive', 'Lane', 'Way', 'Circle',
-  'Court', 'Place', 'Square', 'Terrace', 'Parkway', 'Plaza'
-];
-
-const streetNames = [
-  'Maple', 'Oak', 'Cedar', 'Pine', 'Elm', 'Washington', 'Lincoln', 'Park',
-  'Lake', 'River', 'Mountain', 'Valley', 'Forest', 'Meadow', 'Spring',
-  'Sunset', 'Highland', 'Madison', 'Jefferson', 'Franklin'
-];
-
-const cities = [
-  'San Francisco', 'New York', 'Chicago', 'Los Angeles', 'Seattle',
-  'Boston', 'Austin', 'Denver', 'Miami', 'Portland', 'Atlanta',
-  'Dallas', 'Houston', 'Phoenix', 'Minneapolis'
-];
-
-const states = [
-  { name: 'California', abbr: 'CA' },
-  { name: 'New York', abbr: 'NY' },
-  { name: 'Texas', abbr: 'TX' },
-  { name: 'Florida', abbr: 'FL' },
-  { name: 'Illinois', abbr: 'IL' },
-  { name: 'Washington', abbr: 'WA' },
-  { name: 'Massachusetts', abbr: 'MA' },
-  { name: 'Colorado', abbr: 'CO' },
-  { name: 'Oregon', abbr: 'OR' },
-  { name: 'Georgia', abbr: 'GA' }
-];
-
-// Function to generate a random address
-function generateAddress() {
-  const streetNumber = Math.floor(Math.random() * 9900) + 100; // 100-9999
-  const streetName = streetNames[Math.floor(Math.random() * streetNames.length)];
-  const streetType = streetTypes[Math.floor(Math.random() * streetTypes.length)];
-  const city = cities[Math.floor(Math.random() * cities.length)];
-  const state = states[Math.floor(Math.random() * states.length)];
-  const zip = Math.floor(Math.random() * 90000) + 10000; // 10000-99999
-
-  return {
-    street: `${streetNumber} ${streetName} ${streetType}`,
-    city: city,
-    state: state.name,
-    stateAbbr: state.abbr,
-    zip: zip.toString()
-  };
-}
-
-// Function to generate a random business name
-function generateBusinessName() {
-  const type = businessTypes[Math.floor(Math.random() * businessTypes.length)];
-  const name = businessNames[Math.floor(Math.random() * businessNames.length)];
-  const industry = industries[Math.floor(Math.random() * industries.length)];
-  const timestamp = Date.now().toString().slice(-4);
-  const randomSuffix = Math.random().toString(36).substring(2, 5).toUpperCase();
-  
-  // Always prefix with 'Bulk Account' but add random elements after
-  const formats = [
-    `Bulk Account ${type} ${name} ${randomSuffix}`,
-    `Bulk Account ${type} ${industry} ${randomSuffix}`,
-    `Bulk Account ${industry} ${name} ${timestamp}`,
-    `Bulk Account ${type} ${name} ${industry} ${randomSuffix}`
-  ];
-  
-  const generatedName = formats[Math.floor(Math.random() * formats.length)];
-  
-  // Ensure name doesn't exceed Salesforce's 255-character limit
-  if (generatedName.length > 255) {
-    // If somehow too long, return a shorter format
-    return `Bulk Account ${type} ${randomSuffix}`;
-  }
-  
-  return generatedName;
-}
-
 // Get connection names from environment variable
 const connectionNames = process.env.CONNECTION_NAMES ? process.env.CONNECTION_NAMES.split(',') : []
 
@@ -305,3 +211,98 @@ process.on('SIGTERM', async () => {
     })
   }
 })
+
+// List of business name components for random generation
+const businessTypes = [
+  'Tech', 'Global', 'Advanced', 'Innovative', 'Strategic', 'Premier', 'Elite',
+  'Dynamic', 'Pacific', 'Atlantic', 'Modern', 'Future', 'Smart', 'Connected',
+  'Digital', 'Quantum', 'Unified', 'Integrated', 'Precision', 'Summit'
+];
+
+const businessNames = [
+  'Solutions', 'Systems', 'Enterprises', 'Industries', 'Dynamics', 'Partners',
+  'Networks', 'Technologies', 'Services', 'Innovations', 'Analytics', 'Consulting',
+  'Operations', 'Group', 'Corporation', 'Associates', 'International', 'Management',
+  'Ventures', 'Labs'
+];
+
+const industries = [
+  'Manufacturing', 'Software', 'Healthcare', 'Logistics', 'Energy',
+  'Communications', 'Engineering', 'Research', 'Development', 'Robotics'
+];
+
+// Address components for random generation
+const streetTypes = [
+  'Street', 'Avenue', 'Boulevard', 'Road', 'Drive', 'Lane', 'Way', 'Circle',
+  'Court', 'Place', 'Square', 'Terrace', 'Parkway', 'Plaza'
+];
+
+const streetNames = [
+  'Maple', 'Oak', 'Cedar', 'Pine', 'Elm', 'Washington', 'Lincoln', 'Park',
+  'Lake', 'River', 'Mountain', 'Valley', 'Forest', 'Meadow', 'Spring',
+  'Sunset', 'Highland', 'Madison', 'Jefferson', 'Franklin'
+];
+
+const cities = [
+  'San Francisco', 'New York', 'Chicago', 'Los Angeles', 'Seattle',
+  'Boston', 'Austin', 'Denver', 'Miami', 'Portland', 'Atlanta',
+  'Dallas', 'Houston', 'Phoenix', 'Minneapolis'
+];
+
+const states = [
+  { name: 'California', abbr: 'CA' },
+  { name: 'New York', abbr: 'NY' },
+  { name: 'Texas', abbr: 'TX' },
+  { name: 'Florida', abbr: 'FL' },
+  { name: 'Illinois', abbr: 'IL' },
+  { name: 'Washington', abbr: 'WA' },
+  { name: 'Massachusetts', abbr: 'MA' },
+  { name: 'Colorado', abbr: 'CO' },
+  { name: 'Oregon', abbr: 'OR' },
+  { name: 'Georgia', abbr: 'GA' }
+];
+
+// Function to generate a random address
+function generateAddress() {
+  const streetNumber = Math.floor(Math.random() * 9900) + 100; // 100-9999
+  const streetName = streetNames[Math.floor(Math.random() * streetNames.length)];
+  const streetType = streetTypes[Math.floor(Math.random() * streetTypes.length)];
+  const city = cities[Math.floor(Math.random() * cities.length)];
+  const state = states[Math.floor(Math.random() * states.length)];
+  const zip = Math.floor(Math.random() * 90000) + 10000; // 10000-99999
+
+  return {
+    street: `${streetNumber} ${streetName} ${streetType}`,
+    city: city,
+    state: state.name,
+    stateAbbr: state.abbr,
+    zip: zip.toString()
+  };
+}
+
+// Function to generate a random business name
+function generateBusinessName() {
+  const type = businessTypes[Math.floor(Math.random() * businessTypes.length)];
+  const name = businessNames[Math.floor(Math.random() * businessNames.length)];
+  const industry = industries[Math.floor(Math.random() * industries.length)];
+  const timestamp = Date.now().toString().slice(-4);
+  const randomSuffix = Math.random().toString(36).substring(2, 5).toUpperCase();
+  
+  // Always prefix with 'Bulk Account' but add random elements after
+  const formats = [
+    `Bulk Account ${type} ${name} ${randomSuffix}`,
+    `Bulk Account ${type} ${industry} ${randomSuffix}`,
+    `Bulk Account ${industry} ${name} ${timestamp}`,
+    `Bulk Account ${type} ${name} ${industry} ${randomSuffix}`
+  ];
+  
+  const generatedName = formats[Math.floor(Math.random() * formats.length)];
+  
+  // Ensure name doesn't exceed Salesforce's 255-character limit
+  if (generatedName.length > 255) {
+    // If somehow too long, return a shorter format
+    return `Bulk Account ${type} ${randomSuffix}`;
+  }
+  
+  return generatedName;
+}
