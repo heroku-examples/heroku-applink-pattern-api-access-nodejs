@@ -5,69 +5,104 @@
 </head>
 
 <body>
-
   <%- include ("../partials/nav.ejs") %>
 
-<div class="jumbotron text-center">
+  <div class="jumbotron text-center">
+    <div class="container">
+      <a href="/" class="lang-logo">
+        <img src="/lang-logo.png">
+      </a>
+      <h1>Salesforce Integration with Node.js</h1>
+      <p>This sample application showcases how to extend a Heroku web application by integrating it with Salesforce APIs, enabling seamless data exchange and automation across multiple connected Salesforce orgs.</p>
+      <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started with Node.js</a>
+      <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku-examples/heroku-integration-pattern-api-access-nodejs"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+    </div>
+  </div>
+
   <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="/lang-logo.png">
-    </a>
-    <h1>Getting Started on Heroku with Node.js</h1>
-    <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started on Heroku with Node.js</a>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs-fir"><span class="glyphicon glyphicon-flash"></span> Getting Started on Heroku Fir with Node.js</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
-</div>
-<div class="container">
-  <div class="lead">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to either of the following tutorials:
-    <ul>
-      <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs" class="alert-link">Getting Started on Heroku with Node.js</a></li>
-      <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs-fir" class="alert-link">Getting Started on Heroku Fir with Node.js</a></li>
-    </ul>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku using Git.</li>
-        <li>When Heroku received the source code, it fetched all the dependencies in the <a href="https://github.com/heroku/node-js-getting-started/blob/main/package.json">package.json</a>, creating a deployable build artifact.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the build artifact can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-      </ul>
-    </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-      <ul>
-        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs" class="alert-link">Getting Started on Heroku with Node.js</a> or
-          <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs-fir" class="alert-link">Getting Started on Heroku Fir with Node.js</a> guide,
-          then please head back to the tutorial and follow the next steps!</li>
-      </ul>
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started on Heroku with Node.js</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs-fir">Getting Started on Heroku Fir with Node.js</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node Apps on Heroku</a></li>
-      </ul>
-    </div>
-  </div> <!-- row -->
-  <div>
+    <hr>
 
-  </div>
-  <div class="row" style="margin-top:1em">
-    <div class="col-md-12">
-      <p class="alert alert-info" role="alert">
-        Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
-      </p>
+    <div class="row">
+      <div class="col-md-6">
+        <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
+        <ul>
+          <li>Connects to multiple Salesforce orgs using the Heroku AppLink add-on</li>
+          <li>Queries account data using the Salesforce REST API</li>
+          <li>Demonstrates bulk data operations using the Salesforce Bulk API</li>
+          <li>Uses secure authentication via the Heroku AppLink add-on</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
+        <ul>
+          <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node.js on Heroku</a></li>
+          <li><a href="https://devcenter.heroku.com/articles/heroku-integration">Heroku Integration Documentation</a></li>
+          <li><a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/">Salesforce REST API Documentation</a></li>
+          <li><a href="https://developer.salesforce.com/docs/atlas.en-us.api_bulk_v2.meta/api_bulk_v2/">Salesforce Bulk API Documentation</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <% if (locals.accountsByOrg && accountsByOrg.length > 0) { %>
+        <% accountsByOrg.forEach(function(orgData) { %>
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> Accounts from <%= orgData.connectionName %></h3>
+              </div>
+              <div class="panel-body">
+                <% if (orgData.error) { %>
+                  <div class="alert alert-danger">
+                    <span class="glyphicon glyphicon-warning-sign"></span> Error: <%= orgData.error %>
+                  </div>
+                <% } else if (orgData.accounts.length === 0) { %>
+                  <p>No accounts found</p>
+                <% } else { %>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>ID</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% orgData.accounts.forEach(function(account) { %>
+                        <tr>
+                          <td><%= account.Name %></td>
+                          <td><%= account.Id %></td>
+                        </tr>
+                      <% }); %>
+                    </tbody>
+                  </table>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <div class="col-md-12">
+          <div class="alert alert-warning">
+            <span class="glyphicon glyphicon-warning-sign"></span>
+            No Salesforce connections configured. Set the CONNECTION_NAMES environment variable to get started.
+          </div>
+        </div>
+      <% } %>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-cloud-upload"></span> Bulk API Demo</h3>
+          </div>
+          <div class="panel-body">
+            <p>To test the Bulk API functionality, configure a connection named 'empty-org' and visit the <a href="/bulk-demo" class="btn btn-primary btn-sm">bulk demo endpoint</a>.</p>
+            <p class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> Note: The Bulk API is optimized for handling large data volumes efficiently. It's ideal for operations like data loading, integration, and migration tasks.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-
 </body>
 </html>

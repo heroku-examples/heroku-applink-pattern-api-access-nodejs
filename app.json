@@ -1,7 +1,31 @@
 {
-  "name": "Start on Heroku: Node.js",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "keywords": ["node", "express", "heroku"],
-  "image": "heroku/nodejs"
+  "name": "Heroku Integration - Salesforce API Access (Node.js)",
+  "description": "A sample Node.js app demonstrating Salesforce API integration using Heroku Integration Pilot",
+  "repository": "https://github.com/heroku-examples/heroku-integration-pattern-api-access-nodejs",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/main/public/node.svg",
+  "keywords": ["node", "express", "heroku", "salesforce", "integration", "api", "bulk-api"],
+  "image": "heroku/nodejs",
+  "env": {
+    "CONNECTION_NAMES": {
+      "description": "Comma-separated list of Salesforce connection names",
+      "required": true
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-integration"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "npm test"
+      }
+    }
+  }
 }

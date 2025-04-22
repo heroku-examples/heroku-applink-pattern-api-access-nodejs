@@ -1,30 +1,34 @@
 {
-  "name": "node-js-getting-started",
-  "private": true,
-  "description": "A sample Node.js app using Express",
+  "name": "heroku-integration-pattern-api-access-nodejs",
+  "version": "1.0.0",
+  "description": "A sample Node.js app demonstrating Salesforce API integration using Heroku Integration Pilot",
   "engines": {
-    "node": "18.x || 20.x || 22.x"
+    "node": "20.x"
   },
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "jest"
+    "test": "node --test"
   },
   "dependencies": {
-    "ejs": "^3.1.10",
-    "express": "^5.1.0"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0"
+    "@heroku/salesforce-sdk-nodejs": "0.3.4-ea",
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "node-fetch": "^2.7.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/heroku-examples/heroku-integration-pattern-api-access-nodejs"
   },
   "keywords": [
     "node",
     "heroku",
-    "express"
+    "express",
+    "salesforce",
+    "integration",
+    "api",
+    "bulk-api"
   ],
   "license": "MIT"
 }
