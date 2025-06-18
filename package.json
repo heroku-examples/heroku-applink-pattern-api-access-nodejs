@@ -11,7 +11,7 @@
     "test": "node --test"
   },
   "dependencies": {
-    "@heroku/salesforce-sdk-nodejs": "0.3.4-ea",
+    "@heroku/applink": "^1.0.0-ea.1",
     "dotenv": "^16.5.0",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
