@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express')
 const path = require('path')
-const { init } = require('@heroku/salesforce-sdk-nodejs')
+const { init } = require('@heroku/applink')
 
 const port = process.env.PORT || 5006
 const app = express()
@@ -23,7 +23,7 @@ app.get('/', async (req, res) => {
       connectionNames.map(async (connectionName) => {
         try {
           // Initialize connection for this org
-          const org = await sdk.addons.herokuIntegration.getConnection(connectionName.trim())
+          const org = await sdk.addons.applink.getAuthorization(connectionName.trim())
           console.log('Connected to Salesforce org:', {
             orgId: org.id,
             username: org.user.username
@@ -101,7 +101,7 @@ app.get('/bulk-demo', async (req, res) => {
     }
 
     // Initialize connection for empty-org
-    const org = await sdk.addons.herokuIntegration.getConnection(emptyOrgName)
+    const org = await sdk.addons.applink.getAuthorization(emptyOrgName)
     console.log('Connected to empty-org:', {
       orgId: org.id,
       username: org.user.username
