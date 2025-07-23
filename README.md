@@ -1,4 +1,4 @@
-# Heroku Integration - Salesforce API Access (Node.js)
+# Heroku Applink - Salesforce API Access (Node.js)
 
 ## Architecture Overview
 
@@ -42,7 +42,7 @@ CONNECTION_NAMES=my-org,my-org-sales-a
 
 ### Bulk API Demo
 
-This sample includes a demonstration of using the Salesforce Bulk API using connections formed with the Heroku Integration add-on. To see this in action obtain an org that is empty or that you are using for testing purposes only. Repeat the `salesforce:authorizations` command above using the connection name `empty-org` and then update the `CONNECTION_NAMES` environment variable within `.env` with a comma delimiated list of connection names (example shown above).
+This sample includes a demonstration of using the Salesforce Bulk API using connections formed with Heroku AppLink. To see this in action obtain an org that is empty or that you are using for testing purposes only. Repeat the `salesforce:authorizations` command above using the connection name `empty-org` and then update the `CONNECTION_NAMES` environment variable within `.env` with a comma delimiated list of connection names (example shown above).
 
 When you visit the `/bulk-demo` endpoint, the application will check for existing bulk-loaded records. If none are found, it will start an asynchronous bulk load process. You will see output in the console similar to this:
 
@@ -103,7 +103,7 @@ To access multiple Salesforce orgs, repeat the `salesforce:authorizations` comma
 
 | Sample | What it covers? |
 |--------|----------------|
-| [Salesforce API Access - Node.js](https://github.com/heroku-examples/heroku-integration-pattern-api-access-nodejs) | This sample application showcases how to extend a Heroku web application by integrating it with Salesforce APIs, enabling seamless data exchange and automation across multiple connected Salesforce orgs. It also includes a demonstration of the Salesforce Bulk API, which is optimized for handling large data volumes efficiently. |
-| [Extending Apex, Flow and Agentforce - Node.js](https://github.com/heroku-examples/heroku-integration-pattern-org-action-nodejs) | This sample demonstrates importing a Heroku application into an org to enable Apex, Flow, and Agentforce to call out to Heroku. For Apex, both synchronous and asynchronous invocation are demonstrated, along with securely elevating Salesforce permissions for processing that requires additional object or field access. |
-| [Scaling Batch Jobs with Heroku - Node.js](https://github.com/heroku-examples/heroku-integration-pattern-org-job-nodejs) | This sample seamlessly delegates the processing of large amounts of data with significant compute requirements to Heroku Worker processes. |
-| [Using Eventing to drive Automation and Communication](https://github.com/heroku-examples/heroku-integration-pattern-eventing-nodejs) | This sample extends the batch job sample by adding the ability to use eventing to start the work and notify users once it completes using Custom Notifications. These notifications are sent to the user's desktop or mobile device running Salesforce Mobile. Flow is used in this sample to demonstrate how processing can be handed off to low-code tools such as Flow. |
+| [Salesforce API Access - Node.js](https://github.com/heroku-examples/heroku-applink-pattern-api-access-nodejs) | This sample application showcases how to extend a Heroku web application by integrating it with Salesforce APIs, enabling seamless data exchange and automation across multiple connected Salesforce orgs. It also includes a demonstration of the Salesforce Bulk API, which is optimized for handling large data volumes efficiently. |
+| [Extending Apex, Flow and Agentforce - Node.js](https://github.com/heroku-examples/heroku-applink-pattern-org-action-nodejs) | This sample demonstrates importing a Heroku application into an org to enable Apex, Flow, and Agentforce to call out to Heroku. For Apex, both synchronous and asynchronous invocation are demonstrated, along with securely elevating Salesforce permissions for processing that requires additional object or field access. |
+| [Scaling Batch Jobs with Heroku - Node.js](https://github.com/heroku-examples/heroku-applink-pattern-org-job-nodejs) | This sample seamlessly delegates the processing of large amounts of data with significant compute requirements to Heroku Worker processes. |
+| [Using Eventing to drive Automation and Communication](https://github.com/heroku-examples/heroku-applink-pattern-eventing-nodejs) | This sample extends the batch job sample by adding the ability to use eventing to start the work and notify users once it completes using Custom Notifications. These notifications are sent to the user's desktop or mobile device running Salesforce Mobile. Flow is used in this sample to demonstrate how processing can be handed off to low-code tools such as Flow. |
