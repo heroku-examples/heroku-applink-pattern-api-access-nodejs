@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@heroku/applink": "^1.0.0",
-    "dotenv": "^16.5.0",
+    "dotenv": "^17.2.3",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "node-fetch": "^2.7.0"
