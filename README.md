@@ -1,5 +1,11 @@
 # Heroku Applink - Salesforce API Access (Node.js)
 
+## Repository Moved
+
+This repository is no longer maintained here.
+
+➡️ The project has moved to the [Heroku Reference Applications](https://github.com/heroku-reference-apps) organization, you can find it at https://github.com/heroku-reference-apps/heroku-applink-pattern-api-access-nodejs
+
 ## Architecture Overview
 
 This sample application showcases how to extend a Heroku web application by integrating it with Salesforce APIs, enabling seamless data exchange and automation across multiple connected Salesforce orgs. It also includes a demonstration of the Salesforce Bulk API, which is optimized for handling large data volumes efficiently.
